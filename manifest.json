@@ -1,0 +1,31 @@
+{
+    "name": "my chrome browser Start up page",
+    "short_name": "Start up",
+    "images":[
+        {
+            "src": "./asset/default.jpg",
+            "type": "image/jpeg",
+            "purpose": "background"
+        },
+        {
+            "src": "./asset/morning.jpg",
+            "type": "image/jpeg",
+            "purpose": "background"
+        },
+        {
+            "src": "./asset/afternoon.jpg",
+            "type": "image/jpeg",
+            "purpose": "background"
+        },
+        {
+            "src": "./asset/evening.jpg",
+            "type": "image/jpeg",
+            "purpose": "background"
+        }
+    ],
+    "theme_color": "#000",
+    "background_color": "#000",
+    "start_url": "/",
+    "display": "standalone",
+    "orientation": "portrait"
+}

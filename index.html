@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./style.css">
+    <title>Chrome | New Tap</title>
+    <script>
+        if ('serviceWorker' in navigator) {
+          window.addEventListener('load', () => {
+            navigator.serviceWorker.register('./sw.js');
+          });
+        }
+      </script>
+</head>
+<body id="bodyBackground">
+    <section id="come_center">
+        <div>
+            <div>
+                <div>
+                    <h1 class="current_time"><span id="currentTime1"></span> <span class="column">:</span> <span id="currentTime2"></span></h1>
+                    <h3 class="current_moment"><span id="currentMoment"></span>ENNYOLAR</h3>
+                    <center>
+                        <p>Whats is your main focus for today?</p>
+                    </center>
+                    <span class="underline"></span>
+                </div>
+            </div>
+        </div>
+    </section>
+    <script>
+        let currentTime1 = document.getElementById("currentTime1");
+        let currentTime2 = document.getElementById("currentTime2");
+        let currentMoment = document.getElementById("currentMoment");
+        let bodyBackground = document.getElementById("bodyBackground");
+
+        const interval = setInterval(() => {
+            let theTime = new Date();
+            let theCurrentHour = theTime.getHours();
+            let theCurrentMin = theTime.getMinutes();
+            let theSeconds = theTime.getSeconds();
+
+            // theCurrentHour = (theCurrentHour % 12) || 12;
+
+
+            if(theCurrentHour < 10)
+            theCurrentHour = "0" + theCurrentHour.toString();
+            
+            if(theCurrentMin < 10)
+            theCurrentMin = "0" + theCurrentMin.toString();
+            
+            
+            currentTime1.textContent = theCurrentHour;
+            currentTime2.textContent = theCurrentMin;
+
+            if(theCurrentHour < 12){
+                currentMoment.textContent = "GOOD MORNING, ";
+                bodyBackground.classList.add("morning");
+            } else if(theCurrentHour >= 12 && theCurrentHour < 18){
+                currentMoment.textContent = "GOOD AFTERNOON, ";
+                bodyBackground.classList.add("afternoon");
+            }
+            else if(theCurrentHour >= 18){
+                currentMoment.textContent = "GOOD EVENING, ";
+                bodyBackground.classList.add("everning")
+            }
+        }, 1000)
+
+        // var time = new Date();
+        // console.log(
+        // time.toLocaleString('en-US', { hour: 'numeric', hour12: true })
+        // ); 
+        
+        
+    </script>
+</body>
+</html>
