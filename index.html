@@ -22,7 +22,7 @@
                     <h1 class="current_time"><span id="currentTime1"></span> <span class="column">:</span> <span id="currentTime2"></span></h1>
                     <h3 class="current_moment"><span id="currentMoment"></span>ENNYOLAR</h3>
                     <center>
-                        <p>Whats is your main focus for today?</p>
+                        <p id="questions"></p>
                     </center>
                     <span class="underline"></span>
                 </div>
@@ -34,12 +34,14 @@
         let currentTime2 = document.getElementById("currentTime2");
         let currentMoment = document.getElementById("currentMoment");
         let bodyBackground = document.getElementById("bodyBackground");
+        let questions = document.getElementById("questions");
 
         const interval = setInterval(() => {
             let theTime = new Date();
-            let theCurrentHour = theTime.getHours();
+            let theCurrentHour = theTime.getHours() + 12;
             let theCurrentMin = theTime.getMinutes();
             let theSeconds = theTime.getSeconds();
+            console.log(theCurrentHour)
 
             // theCurrentHour = (theCurrentHour % 12) || 12;
 
@@ -57,13 +59,17 @@
             if(theCurrentHour < 12){
                 currentMoment.textContent = "GOOD MORNING, ";
                 bodyBackground.classList.add("morning");
-            } else if(theCurrentHour >= 12 && theCurrentHour < 18){
+                questions.textContent = "What is your main focus for today?"
+            } 
+            else if(theCurrentHour >= 12 && theCurrentHour < 18){
                 currentMoment.textContent = "GOOD AFTERNOON, ";
                 bodyBackground.classList.add("afternoon");
+                questions.textContent = "Hope you are keeping track to your focus?"
             }
             else if(theCurrentHour >= 18){
                 currentMoment.textContent = "GOOD EVENING, ";
                 bodyBackground.classList.add("everning")
+                questions.textContent = "Well Done!!!, Hope you gain your today focus?"
             }
         }, 1000)
 
