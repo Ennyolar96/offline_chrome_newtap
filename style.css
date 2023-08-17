@@ -13,10 +13,11 @@ body{
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 556px;
+    height: 100vh;
     overflow: hidden;
     color: #f0f0f0;
     text-shadow: 2px 2px 4px #000000;
+    width:100%;
 }
 .morning{
     background-image: url("./asset/morning.jpg");
